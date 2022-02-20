@@ -1,0 +1,15 @@
+# 그리디 알고리즘 연습 백준2839
+
+sugar = int(input())
+num = 0
+
+while sugar >= 0 :
+    if sugar % 5 == 0 :
+        num += sugar//5
+        print(num)
+        break
+    sugar -= 3
+    num += 1
+else:
+    print(-1)
+    
