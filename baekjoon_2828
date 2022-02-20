@@ -1,0 +1,24 @@
+n, m = map(int, input().split())
+num_apple = int(input())
+apple = []
+while num_apple:
+    tmp = int(input())
+    apple.append(tmp)
+    num_apple -= 1
+    
+left = 1
+right = m
+move = 0
+
+for i in apple:
+    if left > i:
+        distance = left - i
+        left = left - distance
+        right = right - distance
+        move += distance
+    elif right < i:
+        distance = i - right
+        left = left + distance
+        right = right + distance
+        move += distance
+print(move)
