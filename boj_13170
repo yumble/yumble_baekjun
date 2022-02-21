@@ -1,0 +1,9 @@
+#greedy algorithm
+#문제설명 >> 노션 참조
+n, k, p, w = map(float, input().split())
+
+time = p/w
+if time == int(p/w):
+    print(int(time))
+else:
+    print(int(time)+1)
