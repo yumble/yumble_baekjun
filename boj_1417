@@ -1,0 +1,22 @@
+#greedy algo
+#문제설명 밑에 노션링크 참조
+
+n = int(input())
+cnt = 0
+array = []
+while n:
+    tmp = int(input())
+    array.append(tmp)
+    n -= 1
+    
+dasom = array[0]
+array = array[1:]
+array.sort(reverse=True)
+
+if len(array):
+    while dasom <= array[0]:
+        dasom += 1
+        array[0] -= 1
+        array.sort(reverse=True)
+        cnt += 1
+print(cnt)
