@@ -1,0 +1,20 @@
+#greedy algorithm
+#문제설명 밑에 노션링크 참조
+
+st = input()
+ucpc = "UCPC"
+cnt = 0
+boolean = False
+
+for i in st:
+    if i == ucpc[cnt]:
+        cnt += 1
+        if cnt == 4:
+            boolean = True
+            break
+
+        
+if boolean:
+    print("I love UCPC")
+else:
+    print("I hate UCPC")
