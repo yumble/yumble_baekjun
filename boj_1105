@@ -1,0 +1,14 @@
+#코드설명 노션참조.
+l, r = input().split()
+cnt = 0
+l +='0'
+r+='0'
+
+if(len(l) == len(r)):
+    for i in range(len(l)):
+        if l[i] != r[i]:
+            break
+        else:
+            if l[i] == '8':
+                cnt+=1
+print(cnt)
