@@ -1,0 +1,12 @@
+#23080
+
+a = int(input())
+string = input()
+printStr = ""
+for i in range(0, len(string)):
+    if ( i % a == 0):
+        printStr += string[i]
+print(printStr)
+
+# N=int(input())
+# print(input()[::N])
