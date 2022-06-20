@@ -1,0 +1,12 @@
+while True:
+    try:
+        n = int(input())
+    except:
+        break
+    count = 1
+    str = '1'
+    b = False
+    while (int(str) % n != 0) :
+        str +='1'
+        count+=1
+    print("%d"%(count))
