@@ -1,0 +1,5 @@
+n = int(input())
+numList = list(map(int, input().split()))
+numList.sort()
+print("%d"%(numList[0]*numList[-1]))
+#진짜 약수가 주어질때 정렬 후 첫번째와 마지막을 곱하면 원래 수가 나온다.
