@@ -1,0 +1,24 @@
+
+l = [0]*1000001
+for i in range(1,1000001):
+    j=1
+    while(i*j<=1000000):
+        l[i*j] += 1
+        j += 1
+
+
+a, b = map(int, input().split())
+
+printList = []
+
+for i in range(a, b+1):
+    if(l[i] == 2):
+        printList.append(i)
+print('\n'.join(map(str,printList)))
+
+# 약수가 아닌 배수의 개념활용
+# 약수를 두개만 가지는 소수만 출력
+# 1000000까지으 범위이므로 매우 시간 오래걸림.
+# 소수는 생각보다 확인을 다 할 필요가 없다.
+# 짝수들은 나누기 2에서 다 탈락하기에...
+# ver2는 값을 받는 즉시 확인하는 것으로 짜보자.
