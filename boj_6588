@@ -1,0 +1,27 @@
+# i think dp
+import sys
+
+prime = [True] * (1000000 + 1)
+prime[1] = False
+for i in range(2, 1001):
+    if prime[i] == True:
+        for j in range(i + i, 1000001, i):
+            prime[j] = False
+
+while True:
+    n = int(sys.stdin.readline())
+
+    if n == 0:
+        break
+    tmp = 0
+    for i in range(3,n):
+        if prime[i] == True and prime[n-i] == True:
+            tmp = i
+            break
+    if tmp == 0:
+        print("Goldbach's conjecture is wrong.")
+    else:
+        print("%d = %d + %d" % (n, i, n - i))
+# https://velog.io/@yeseolee/Python-파이썬-입력-정리sys.stdin.readline
+# 반복문으로 입력받을때 sys 이용
+#에스토스테네스의 체 이용 필수
