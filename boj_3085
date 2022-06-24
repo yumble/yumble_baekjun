@@ -1,0 +1,75 @@
+
+def check(n, a):
+    max = 1
+    tmp = 1
+    for i in range(n):
+        for j in range(n-1):
+            if a[i][j] == a[i][j+1]:
+                tmp +=1
+            else:
+                if max < tmp:
+                    max = tmp
+                tmp = 1
+        if max < tmp:
+            max = tmp
+        tmp = 1
+
+    for j in range(n):
+        for i in range(n - 1):
+            if a[i][j] == a[i+1][j]:
+                tmp += 1
+            else:
+                if max < tmp:
+                    max = tmp
+                tmp = 1
+        if max < tmp:
+            max = tmp
+        tmp = 1
+    return max
+
+def checkColumn(max, j, n, a):
+    tmp = 1
+    for i in range(n-1):
+        if a[i][j] == a[i+1][j]:
+            tmp += 1
+        else:
+            if max < tmp :
+                max = tmp
+            tmp = 1
+    if max < tmp:
+        max = tmp
+    return max
+def checkRow(max, i, n, a):
+    tmp = 1
+    for j in range(n-1):
+        if a[i][j] == a[i][j+1]:
+            tmp += 1
+        else:
+            if max < tmp :
+                max = tmp
+            tmp = 1
+    if max < tmp:
+        max = tmp
+    return max
+
+n = int(input())
+a = [list(input()) for _ in range(n)]
+max = check(n,a)
+
+for i in range(n):
+    for j in range(n-1):
+        if a[i][j] != a[i][j+1]:
+            a[i][j], a[i][j+1] = a[i][j+1], a[i][j]
+            max = checkColumn(max, j, n , a)
+            max = checkColumn(max, j+1, n, a)
+            max = checkRow(max,i,n,a)
+            a[i][j], a[i][j + 1] = a[i][j + 1], a[i][j]
+for j in range(n):
+    for i in range(n-1):
+        if a[i][j] != a[i+1][j]:
+            a[i][j], a[i+1][j] = a[i+1][j], a[i][j]
+            max = checkRow(max, i, n , a)
+            max = checkRow(max, i+1, n, a)
+            max = checkColumn(max,j,n,a)
+            a[i][j], a[i+1][j] = a[i+1][j], a[i][j]
+print(max)
