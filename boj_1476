@@ -1,0 +1,17 @@
+e,s,m = map(int,input().split())
+
+a = []
+b = []
+finalList = []
+for i in range(s,7981,28):
+    a.append(i)
+for i in range(m,7981,19):
+    if i in a:
+        b.append(i)
+for i in range(e,7981,15):
+    if i in b:
+        finalList.append(i)
+print(finalList[0])
+
+#브루토포스 문제..!!
+#나머지 느낌
