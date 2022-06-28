@@ -1,0 +1,142 @@
+def blue1(tList, a, b, max):
+    for i in range(a-3):
+        for j in range(b):
+            sum = tList[i][j]+tList[i+1][j]+tList[i+2][j]+tList[i+3][j]
+            if sum > max:
+                max = sum
+            sum = 0
+    return max
+def blue2(tList, a, b, max):
+    for i in range(a):
+        for j in range(b-3):
+            sum = tList[i][j]+tList[i][j+1]+tList[i][j+2]+tList[i][j+3]
+            if sum > max:
+                max = sum
+            sum = 0
+    return max
+def yellow(tList, a, b, max):
+    for i in range(a-1):
+        for j in range(b-1):
+            sum = tList[i][j]+tList[i][j+1]+tList[i+1][j]+tList[i+1][j+1]
+            if sum > max:
+                max = sum
+            sum = 0
+    return max
+def orange(tList, a, b, max):
+    for i in range(a-2):
+        for j in range(b-1):
+            sum = tList[i][j]+tList[i+1][j]+tList[i+2][j]+tList[i+2][j+1]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-1):
+        for j in range(b-2):
+            sum = tList[i+1][j]+tList[i+1][j+1]+tList[i+1][j+2]+tList[i][j+2]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-2):
+        for j in range(b-1):
+            sum = tList[i][j]+tList[i][j+1]+tList[i+1][j+1]+tList[i+2][j+1]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-1):
+        for j in range(b-2):
+            sum = tList[i][j]+tList[i][j+1]+tList[i][j+2]+tList[i+1][j]
+            if sum > max:
+                max = sum
+            sum = 0
+    #대칭
+    for i in range(a-2):
+        for j in range(b-1):
+            sum = tList[i][j+1]+tList[i+1][j+1]+tList[i+2][j+1]+tList[i+2][j]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-1):
+        for j in range(b-2):
+            sum = tList[i][j]+tList[i+1][j]+tList[i+1][j+1]+tList[i+1][j+2]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-2):
+        for j in range(b-1):
+            sum = tList[i][j]+tList[i][j+1]+tList[i+1][j]+tList[i+2][j]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-1):
+        for j in range(b-2):
+            sum = tList[i][j]+tList[i][j+1]+tList[i][j+2]+tList[i+1][j+2]
+            if sum > max:
+                max = sum
+            sum = 0
+    return max
+def green(tList, a, b, max):
+    for i in range(a-2):
+        for j in range(b-1):
+            sum = tList[i][j]+tList[i+1][j]+tList[i+1][j+1]+tList[i+2][j+1]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-1):
+        for j in range(b-2):
+            sum = tList[i][j+1]+tList[i][j+2]+tList[i+1][j]+tList[i+1][j+1]
+            if sum > max:
+                max = sum
+            sum = 0
+    #대칭
+    for i in range(a-2):
+        for j in range(b-1):
+            sum = tList[i][j+1]+tList[i+1][j]+tList[i+1][j+1]+tList[i+2][j]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-1):
+        for j in range(b-2):
+            sum = tList[i][j]+tList[i][j+1]+tList[i+1][j+1]+tList[i+1][j+2]
+            if sum > max:
+                max = sum
+            sum = 0
+    return max
+def pink(tList, a, b, max):
+    for i in range(a-2):
+        for j in range(b-1):
+            sum = tList[i][j]+tList[i+1][j]+tList[i+2][j]+tList[i+1][j+1]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-1):
+        for j in range(b-2):
+            sum = tList[i+1][j]+tList[i+1][j+1]+tList[i+1][j+2]+tList[i][j+1]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-2):
+        for j in range(b-1):
+            sum = tList[i+1][j]+tList[i][j+1]+tList[i+1][j+1]+tList[i+2][j+1]
+            if sum > max:
+                max = sum
+            sum = 0
+    for i in range(a-1):
+        for j in range(b-2):
+            sum = tList[i][j]+tList[i][j+1]+tList[i][j+2]+tList[i+1][j+1]
+            if sum > max:
+                max = sum
+            sum = 0
+    return max
+
+a , b = map(int,input().split())
+tList = []
+for _ in range(a):
+    tList.append(list(map(int,input().split())))
+max = 0
+max = blue1(tList,a,b,max)
+max = blue2(tList,a,b,max)
+max = yellow(tList,a,b,max)
+max = orange(tList,a,b,max)
+max = green(tList,a,b,max)
+max = pink(tList,a,b,max)
+
+print(max)
