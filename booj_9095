@@ -1,0 +1,19 @@
+def add(a):
+    if a == 1:
+        return 1
+    elif a==2:
+        return 2
+    elif a==3:
+        return 4
+    else:
+        return add(a-1) +add(a-2)+add(a-3)
+
+import sys
+
+n = int(input())
+
+for i in range(n):
+    a = int(sys.stdin.readline())
+    print(add(a))
+#점화식...이용하기
+
