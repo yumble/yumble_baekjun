@@ -1,0 +1,17 @@
+def dfs(s,b):
+    if len(s) == b:
+        print(' '.join(map(str,s)))
+        return
+    for i in range(1,a+1):
+        s.append(i)
+        dfs(s,b)
+        s.pop()
+
+a, b = map(int,input().split())
+s= []
+for i in range(1,a+1):
+    s.append(i)
+    dfs(s,b)
+    s = []
+
+#15649 에서 중복을 검사하는 if 문 제거
