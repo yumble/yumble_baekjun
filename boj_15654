@@ -1,0 +1,20 @@
+def dfs(s,b,numList):
+    if len(s) == b:
+        print(' '.join(map(str,s)))
+        return
+    for i in numList:
+        if i not in s:
+            s.append(i)
+            dfs(s, b, numList)
+            s.pop()
+
+a, b = map(int,input().split())
+numList = list(map(int,input().split()))
+numList.sort()
+s= []
+for i in numList:
+    s.append(i)
+    dfs(s,b, numList)
+    s = []
+
+# range 로 for문을 도는 것이 아닌 list안에 있는 요소들로 포문 돌기
