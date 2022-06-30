@@ -1,0 +1,20 @@
+def dfs(s,b,numList, num):
+    if len(s) == b:
+        print(' '.join(map(str,s)))
+        return
+    for i in range(num,len(numList)):
+        if numList[i] not in s:
+            s.append(numList[i])
+            dfs(s, b, numList,i)
+            s.pop()
+
+a, b = map(int,input().split())
+numList = list(map(int,input().split()))
+numList.sort()
+s= []
+for i in range(len(numList)):
+    s.append(numList[i])
+    dfs(s,b, numList, i)
+    s = []
+
+# range 로 for문을 도는 것이 아닌 list의 index를 전달하면서 포문 돌기
